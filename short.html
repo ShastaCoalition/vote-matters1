@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Your Vote Matters</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #667eea;
+            padding: 0;
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 100%;
+            background: white;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .emoji-header {
+            font-size: 4em;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
+            padding: 25px 20px;
+            margin: 0;
+            text-align: center;
+            border-bottom: 5px solid #ffc107;
+        }
+        
+        .intro p {
+            font-size: 1.15em;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .stat-box .big-number {
+            font-size: 4em;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-box p {
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        
+        .icon-section {
+            padding: 30px 20px;
+            background: #f8f9fa;
+        }
+        
+        .icon-section h2 {
+            font-size: 1.8em;
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .icon-item {
+            background: white;
+            padding: 20px 15px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .icon-item .emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .icon-item strong {
+            display: block;
+            font-size: 1em;
+            color: #2d3436;
+            margin-bottom: 5px;
+        }
+        
+        .icon-item p {
+            font-size: 0.85em;
+            color: #636e72;
+            line-height: 1.4;
+        }
+        
+        .key-points {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 30px 20px;
+        }
+        
+        .key-points h2 {
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .point {
+            background: rgba(255,255,255,0.15);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 5px solid #fdcb6e;
+        }
+        
+        .point strong {
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .visual-divider {
+            text-align: center;
+            font-size: 3em;
+            padding: 20px;
+            background: white;
+        }
+        
+        .callout-box {
+            background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+            color: white;
+            padding: 25px 20px;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .callout-box .emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .callout-box p {
+            font-size: 1.15em;
+            line-height: 1.6;
+        }
+        
+        .examples {
+            background: #e8f5e9;
+            padding: 30px 20px;
+        }
+        
+        .examples h2 {
+            font-size: 1.6em;
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .example-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .example-item .emoji {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+        
+        .register-section {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .register-section h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .register-button {
+            display: inline-block;
+            background: white;
+            color: #00b894;
+            padding: 20px 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .footer {
+            background: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="emoji-header">🗳️</div>
+            <h1>YOUR VOTE MATTERS</h1>
+            <p>Here's Why Every Vote Counts</p>
+        </div>
+        
+        <div class="intro">
+            <p><strong>Think your vote doesn't matter because of the Electoral College?</strong></p>
+            <p style="margin-top: 15px;"><strong>By voting, you can elect leaders in favor of abolishing the Electoral College.</strong> Plus, your vote decides hundreds of other critical races!</p>
+        </div>
+        
+        <div class="stat-box">
+            <div class="big-number">40+</div>
+            <p><strong>In 2023 alone, over 40 local U.S. elections were decided by 5 votes or fewer.</strong></p>
+            <p style="margin-top: 15px;">One Virginia House race was decided by drawing a name from a bowl after a TIE!</p>
+        </div>
+        
+        <div class="icon-section">
+            <h2>🏛️ Where Your Vote Has POWER</h2>
+            
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <div class="emoji">🏫</div>
+                    <strong>School Boards</strong>
+                    <p>Curriculum, teacher pay, school funding</p>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="emoji">🏙️</div>
+                    <strong>City Council</strong>
+                    <p>Local budget, police, housing</p>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="emoji">⚖️</div>
+                    <strong>Judges & DAs</strong>
+                    <p>Criminal justice, prosecutions</p>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="emoji">👮</div>
+                    <strong>Sheriffs</strong>
+                    <p>Law enforcement operations</p>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="emoji">🏛️</div>
+                    <strong>State Legislature</strong>
+                    <p>Healthcare, education, workers' rights</p>
+                </div>
+                
+                <div class="icon-item">
+                    <div class="emoji">🏢</div>
+                    <strong>Congress</strong>
+                    <p>Student loans, climate, healthcare</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="visual-divider">
+            ⭐ ⭐ ⭐
+        </div>
+        
+        <div class="key-points">
+            <h2>💪 Why It Matters</h2>
+            
+            <div class="point">
+                <strong>📊 Politicians Track Turnout</strong>
+                They ignore groups that don't vote. Want them to care about student debt, climate, housing? VOTE.
+            </div>
+            
+            <div class="point">
+                <strong>🔥 Gen Z = Largest Potential Bloc</strong>
+                If young people voted at Boomer rates, elections would transform completely.
+            </div>
+            
+            <div class="point">
+                <strong>✅ Voting is Habit-Forming</strong>
+                Vote young, vote for life. Skip once, keep skipping.
+            </div>
+            
+            <div class="point">
+                <strong>🎯 Local = Your Daily Life</strong>
+                Mayor, city council, and school board affect you MORE than the president.
+            </div>
+        </div>
+        
+        <div class="callout-box">
+            <div class="emoji">🔥</div>
+            <p><strong>In 2000:</strong> George W. Bush won Florida (and the presidency) by just <strong>537 votes</strong> out of nearly 6 million cast.</p>
+            <p style="margin-top: 15px;"><strong>In 2008:</strong> Al Franken won his Senate seat by <strong>312 votes</strong> — giving Democrats the vote needed to pass the Affordable Care Act.</p>
+        </div>
+        
+        <div class="examples">
+            <h2>📋 You Vote Directly On:</h2>
+            
+            <div class="example-item">
+                <span class="emoji">💰</span>
+                <strong>Minimum wage, rent control, healthcare expansion</strong>
+            </div>
+            
+            <div class="example-item">
+                <span class="emoji">🌱</span>
+                <strong>Marijuana legalization, criminal justice reform</strong>
+            </div>
+            
+            <div class="example-item">
+                <span class="emoji">⚡</span>
+                <strong>Clean energy, environmental protections</strong>
+            </div>
+            
+            <div class="example-item">
+                <span class="emoji">🗳️</span>
+                <strong>Voting rights, abortion rights</strong>
+            </div>
+        </div>
+        
+        <div class="register-section">
+            <h2>Ready to Make Your Voice Heard?</h2>
+            <a href="https://registertovote.ca.gov/" target="_blank" class="register-button">
+                REGISTER TO VOTE IN CA 🗳️
+            </a>
+        </div>
+        
+        <div class="footer">
+            YOUR VOTE IS YOUR VOICE. USE IT. ✊
+        </div>
+    </div>
+</body>
+</html>
